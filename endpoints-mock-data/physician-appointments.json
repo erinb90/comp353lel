@@ -1,0 +1,6 @@
+
+[
+      {"phn": "111222", "patient" : "another guy", "center": "cote vertu", "date": "someday"},
+      {"phn": "111333", "patient" : "sick dude", "center": "cote vertu again", "date": "someday no one knows"},
+      {"phn": "111555", "patient" : "jon snow", "center": "kinglanding", "date": "aug 27th"}
+]

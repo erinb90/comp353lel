@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/slate/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../lib/css/spinner.css"/>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--- templates' names to load -->
+    <script>
+        var page_templates = ['receptionist-menu-content', 'receptionist-register-form'];
+    </script>
+
+    <script src="../lib/js/template-loader.js"></script>
+    <script src="../lib/js/form-submit.js"></script>
+</head>
+
+<body>
+
+<comp353-navbar></comp353-navbar>
+
+<!-- receptionist menu -->
+<div class="row">
+    <div class="col-lg-2">
+        <ul class="nav nav-tabs nav-stacked">
+            <li class="active"><a data-toggle="tab" href="#appointments-tab">Coming Appointments</a></li>
+            <li><a data-toggle="tab" href="#make-appointment">Make an Appointment</a></li>
+            <li><a data-toggle="tab" href="#register">Register a patient</a></li>
+        </ul>
+    </div>
+    <!-- END receptionist menu -->
+
+    <!-- tabs of the menue -->
+    <div class="col-lg-9">
+        <comp353-receptionist-menu-content></comp353-receptionist-menu-content>
+    </div>
+    <!-- END tabs of the menue -->
+
+
+    <script src="../lib/js/index.js"></script>
+    <script src="../lib/js/receptionist.js"></script>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+
+[
+      {"doctor": "json jsonian", "patient" : "another guy", "center": "cote vertu", "date": "someday"},
+      {"doctor": "some doctor", "patient" : "sick dude", "center": "cote vertu again", "date": "someday no one knows"},
+      {"doctor": "the best master", "patient" : "jon snow", "center": "kinglanding", "date": "aug 27th"}
+]
