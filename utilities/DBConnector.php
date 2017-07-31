@@ -109,6 +109,12 @@ class DBConnector
         // Escape Query string
         $query_str = $this->_connection->real_escape_string($query_str);
 
-        return $this->_connection->query($query_str)->fetch_all($return_type);
+        $result = $this->_connection->query($query_str);
+        if ($result){
+            return $result->fetch_all($return_type);
+        }else{
+            echo "Error while querying the DB. Check your query.";
+            return false;
+        }
     }
 }
