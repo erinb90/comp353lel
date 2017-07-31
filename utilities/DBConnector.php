@@ -91,7 +91,7 @@ class DBConnector
 
         // Check if connection has been successful
         if ($this->_connection->connect_error) {
-            echo("Connection Error: " . $this->_connection->connect_error);
+            die("Connection Error: " . $this->_connection->connect_error);
         }
 
         return $this->_connection;
