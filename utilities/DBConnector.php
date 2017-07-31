@@ -106,8 +106,6 @@ class DBConnector
      */
     private function execute_query($query_str, $return_type)
     {
-        // Escape Query string
-
         $result = $this->_connection->query($query_str);
         if ($result){
             return $result->fetch_all($return_type);
