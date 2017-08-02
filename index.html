@@ -10,33 +10,20 @@
 
             <!--- templates' names to load -->
             <script>
-                  var page_templates = [];
+                  var page_templates = ['login-form'];
             </script>
             <script src="../lib/js/template-loader.js"></script>
       </head>
 
       <body>
             <comp353-navbar></comp353-navbar>
-            <p> Bahamas Sports Physio Center </p>
 
-            <!-- login form @todo make a nice template for this -->
-            <form action="/services/login.php" method="post" id="login">
+            <div class="container">
+                  <h1>Bahamas Sports Physio Center</h1>
+            </div>
 
-                  <div>
-                        <label><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="username" id="username" required>
-                        <br/>
-                        <label><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="password" id="password" required>
-                        <br/>
-                        <button type="submit">Login</button>
-                        <input type="checkbox" checked="checked"> Remember me
-                  </div>
+            <comp353-login-form></comp353-login-form>
+            <script src="/lib/js/login.js"></script>
 
-                  <div>
-                        <button type="button">Cancel</button>
-                        <span class="psw">Forgot <a href="#">password?</a></span>
-                  </div>
-            </form>
       </body>
 </html>
