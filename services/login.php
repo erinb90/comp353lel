@@ -10,7 +10,6 @@
     //connect to db
     $dbc = new DBConnector();
 
-
     //send the form data
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -25,28 +24,23 @@
 
         $_SESSION['username'] = $result[0]['username'];
 
-        //redirect depending on user title
-        if ($result[0]['title'] == 'physician') {
-            ?>
-            <script>window.location.replace("/pages/Physician.html");</script>
-            <?php
+        //redirect depending on user type
+        if ($result[0]['type'] == 'physician') {
+            echo 'physician';
         }
-        else if ($result[0]['title'] == 'receptionist') {
-            ?>
-            <script>window.location.replace("/pages/Receptionist.html");</script>
-            <?php
+        else if ($result[0]['type'] == 'receptionist') {
+            echo 'receptionist';
         }
+        else if ($result[0]['type'] == 'patient') {
+            echo 'patient';
+        }
+
     }
 
     else
     {
-        ?>
-        <script>
-            window.alert("invalid credentials");
-            window.location.replace("/index.html");
-        </script>
-        <?php
-    }
+        echo 'Invalid credentials';
 
+    }
 
 ?>
