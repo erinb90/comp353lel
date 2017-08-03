@@ -1,0 +1,10 @@
+{
+  "state": "success",
+  "msg"  : "Patient found!",
+  "phn"  : "kljljkl",
+  "firstname": "drogo",
+  "lastname": "drogian",
+  "email"   : "drogo-sexy-boy@yahoo.com",
+  "gender" : "female",
+  "dateofbirth": "12/12/2001"
+}

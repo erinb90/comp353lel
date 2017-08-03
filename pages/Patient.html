@@ -12,9 +12,7 @@
 
 
     <!--- templates' names to load -->
-    <script>
-        var page_templates = ['receptionist-menu-content', 'receptionist-register-form', 'register-referral'];
-    </script>
+
 
     <script src="../lib/js/template-loader.js"></script>
     <script src="../lib/js/form-submit.js"></script>
@@ -22,25 +20,34 @@
     <script src="../lib/js/"></script>
 </head>
 
-<body>
+<body >
 <comp353-navbar></comp353-navbar>
 
 <!-- receptionist menu -->
 <div class="row">
     <div class="col-lg-2">
         <ul class="nav nav-tabs nav-stacked">
-            <li class="active"><a data-toggle="tab" href="#appointments-tab">Coming Appointments</a></li>
-            <li><a data-toggle="tab" href="#make-appointment">Make an Appointment</a></li>
-            <li><a data-toggle="tab" href="#register-referral">Register a Referral</a></li>
-            <li><a data-toggle="tab" href="#register-patient">Register a patient</a></li>
-
+            <li class="active"><a data-toggle="tab" href="#make-appointment">Make an Appointment</a></li>
         </ul>
     </div>
     <!-- END receptionist menu -->
 
     <!-- tabs of the menue -->
     <div class="col-lg-9">
-        <comp353-receptionist-menu-content></comp353-receptionist-menu-content>
+        <div class="tab-content">
+            <div id="make-appointment" class="tab-pane fade in active">
+                <h1>Make an Appointment</h1>
+                <h4>Please insert referral serial number</h4>
+
+                <div class="form-group">
+                    <input type="text" id="referral-search" value="" class="form-control" placeholder="Search">
+                </div>
+
+                <button type="submit" class="btn btn-default" onclick="GetAppointments();">Submit</button>
+            </div>
+        </div>
+
+    </div>
 
     </div>
     <!-- END tabs of the menue -->
@@ -70,7 +77,7 @@
     <!-- end of modal schedule-->
 
     <script src="../lib/js/index.js"></script>
-    <script src="../lib/js/receptionist.js"></script>
+    <script src="../lib/js/patient.js"></script>
 </div>
 </body>
 
