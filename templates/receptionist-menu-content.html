@@ -1,6 +1,7 @@
 <div class="tab-content">
     <!-- first tab appointments -->
     <div id="appointments-tab" class="tab-pane fade in active">
+        <h1>Coming Appointments</h1>
         <table class="table table-striped table-hover ">
             <thead>
             <tr class="danger">
@@ -26,15 +27,43 @@
     </div>
     <!-- End of first tab -->
 
+    <!-- REGISTER REFERRAL -->
+    <div id="register-referral" class="tab-pane fade">
+        <h1>Register a Referral</h1>
+        <comp353-register-referral></comp353-register-referral>
+        <div class="form-group">
+                  <span class="input-group-btn">
+                        <input class="btn btn-default" value="Submit" type="button" id="form-submit"
+                               onclick="SubmitForm('http://feken.com', 'referral-form');"/>Button
+                  </span>
+        </div>
+    </div>
+    <!-- END REGISTER REFERRAL -->
+
+    <!-- make appointment -->
+    <div id="make-appointment" class="tab-pane fade">
+        <h1>Make an Appointment</h1>
+        <h4>Please insert referral serial number</h4>
+
+        <div class="form-group">
+            <input type="text" id="referral-search" value="" class="form-control" placeholder="Search">
+        </div>
+
+        <button type="submit" class="btn btn-default" onclick="GetAppointments();">Submit</button>
+
+    </div>
+    <!-- end make appointment -->
+
     <!-- second PATIENT REGISTER TAB -->
-    <div id="register" class="tab-pane fade">
+    <div id="register-patient" class="tab-pane fade">
+        <h1>Regiser a Patient</h1>
         <comp353-receptionist-register-form></comp353-receptionist-register-form>
 
         <!-- submit from button -->
         <div class="form-group">
                   <span class="input-group-btn">
                         <input class="btn btn-default" value="Submit" type="button" id="form-submit"
-                               onclick="SubmitForm('http://feken.com');"/>Button
+                               onclick="SubmitForm('http://feken.com', 'register-form');"/>Button
                   </span>
         </div>
         <!-- END submit from button -->
