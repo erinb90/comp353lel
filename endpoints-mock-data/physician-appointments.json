@@ -1,6 +1,6 @@
 
 [
-      {"phn": "111222", "patient" : "another guy", "center": "cote vertu", "date": "someday"},
-      {"phn": "111333", "patient" : "sick dude", "center": "cote vertu again", "date": "someday no one knows"},
-      {"phn": "111555", "patient" : "jon snow", "center": "kinglanding", "date": "aug 27th"}
+      {"phn": "111222", "firstname" : "another", "lastname": "guy", "center": "cote vertu", "date": "someday"},
+      {"phn": "111333", "firstname" : "jake", "lastname": "guy", "center": "cote vertu again", "date": "someday no one knows"},
+      {"phn": "111555", "firstname" : "jakejake", "lastname": "guy", "center": "kinglanding", "date": "aug 27th"}
 ]
