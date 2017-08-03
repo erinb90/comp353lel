@@ -18,29 +18,21 @@
     //@todo hash passwords in db for security
     $result = $dbc->query_assoc("SELECT * FROM users WHERE username='$username' and password='$password'");
 
+    //user found in db
     if($result) {
         //start session
         session_start();
 
         $_SESSION['username'] = $result[0]['username'];
 
-        //redirect depending on user type
-        if ($result[0]['type'] == 'physician') {
-            echo 'physician';
-        }
-        else if ($result[0]['type'] == 'receptionist') {
-            echo 'receptionist';
-        }
-        else if ($result[0]['type'] == 'patient') {
-            echo 'patient';
-        }
-
+        //output the user type for js redirect
+        echo $result[0]['type'];
     }
 
+    //user not found in db
     else
     {
         echo 'Invalid credentials';
-
     }
 
 ?>
