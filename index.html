@@ -1,5 +1,29 @@
 <html>
+
+      <head>
+            <link rel="stylesheet" type="text/css" href="https://bootswatch.com/slate/bootstrap.css"/>
+            <link rel="stylesheet" type="text/css" href="../lib/css/spinner.css"/>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+            <!--- templates' names to load -->
+            <script>
+                  var page_templates = ['login-form'];
+            </script>
+            <script src="../lib/js/template-loader.js"></script>
+      </head>
+
       <body>
-            <p> Github project subfolder 2nd test </p>
+            <comp353-navbar></comp353-navbar>
+
+            <div class="container">
+                  <h1>Bahamas Sports Physio Center</h1>
+            </div>
+
+            <comp353-login-form></comp353-login-form>
+            <script src="/lib/js/login.js"></script>
+
       </body>
 </html>
