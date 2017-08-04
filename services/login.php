@@ -10,12 +10,14 @@
     //connect to db
     $dbc = new DBConnector();
 
+    //data to pass to front-end
+    $data = array();
+
     //send the form data
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
     //query db to find user
-    //@todo hash passwords in db for security
     $result = $dbc->query_assoc("SELECT * FROM users WHERE username='$username' and password='$password'");
 
     //user found in db
@@ -25,14 +27,20 @@
 
         $_SESSION['username'] = $result[0]['username'];
 
-        //output the user type for js redirect
-        echo $result[0]['type'];
+        $data['response'] = 1;
+        $data['username'] = $result[0]['username'];
+        $data['password'] = $result[0]['password'];
+        $data['type'] = $result[0]['type'];
     }
 
     //user not found in db
     else
     {
-        echo 'Invalid credentials';
+        $data['response'] = 0;
+        $data['error'] = 'Invalid credentials';
     }
+
+    //send data to front-end
+    echo json_encode($data);
 
 ?>
