@@ -25,7 +25,9 @@
         //start session
         session_start();
 
+        //set session variables
         $_SESSION['username'] = $result[0]['username'];
+        $_SESSION['type'] = $result[0]['type'];
 
         $data['response'] = 1;
         $data['username'] = $result[0]['username'];
