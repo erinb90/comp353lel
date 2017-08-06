@@ -29,7 +29,6 @@
 
         $data['response'] = 1;
         $data['username'] = $result[0]['username'];
-        $data['password'] = $result[0]['password'];
         $data['type'] = $result[0]['type'];
     }
 
