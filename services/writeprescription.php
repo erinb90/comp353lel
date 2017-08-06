@@ -23,7 +23,8 @@ $notes = $_POST['notes'];
 $dbc->query_assoc("INSERT INTO prescription(apptid,diagnosis,notes) VALUES ('$apptid','$diagnosis','$notes')");
 
 //get the most recently added prescription id
-$prescriptionid = [$dbc->query_assoc("SELECT prescriptionid FROM prescription ORDER BY prescriptionid DESC LIMIT 1")][0]['prescriptionid'];
+$result = $dbc->query_assoc("SELECT prescriptionid FROM prescription ORDER BY prescriptionid DESC LIMIT 1");
+$prescriptionid = $result[0]['prescriptionid'];
 
 //doctor prescription
 if($_SESSION['type'] == 'DOCTOR') {
@@ -38,8 +39,8 @@ else if($_SESSION['type'] == 'THERAPIST') {
     $equipment = $_POST['equipment'];
     $treatment = $_POST['treatment'];
 
-    //find equipment id from equipment name
-    //find treatment id from treatment name
+    //@todo find equipment id from equipment name
+    //@todo find treatment id from treatment name
     $equipmentid = '';
     $treatmentid = '';
 
