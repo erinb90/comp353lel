@@ -18,7 +18,7 @@
     $password = trim($_POST['password']);
 
     //query db to find user
-    $result = $dbc->query_assoc("SELECT * FROM users WHERE username='$username' and password='$password'");
+    $result = $dbc->query_assoc("SELECT username,password,type FROM users WHERE username='$username' and password='$password'");
 
     //user found in db
     if($result) {
