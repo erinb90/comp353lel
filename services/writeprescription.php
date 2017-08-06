@@ -12,7 +12,7 @@ session_start();
 $redirect_flag = true;
 
 if (array_key_exists("type", $_SESSION) &&
-    ($_SESSION["type"] == "DOCTOR" || 
+    ($_SESSION["type"] == "DOCTOR" ||
         $_SESSION["type"] == "THERAPIST")) {
                  $redirect_flag = false;
 }
@@ -94,15 +94,6 @@ else if($_SESSION['type'] == 'THERAPIST') {
                         VALUES ('$prescriptionid','$equipmentid')");
     }
 
-    //get all checked off treatments
-    $treatment = $_POST['treatment'];
-
-    //insert treatment into physio prescription treatment table
-    foreach ($treatment as $key => $value) {
-        $treatmentid = $value;
-        $dbc->query_assoc("INSERT INTO phyprestreatment(prescriptionid,treatmentid)
-                        VALUES ('$prescriptionid','$treatmentid')");
-    }
 }
 
 //send a success message to front-end
