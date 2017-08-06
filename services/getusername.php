@@ -6,6 +6,12 @@
  * Time: 2:35 PM
  */
     session_start();
-    echo $_SESSION['username'];
+
+    if(!isset($_SESSION['username'])){
+        echo "";
+    }
+    else {
+        echo $_SESSION['username'];
+    }
 
 ?>
