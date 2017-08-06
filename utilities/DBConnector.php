@@ -110,7 +110,7 @@ class DBConnector
         if (is_bool($result)){
             return $result;
         }elseif ($result){
-            return $result->fetch_all($return_type);;
+            return $result->fetch_all($return_type);
         }else{
             echo "Error while querying the DB. Check your query.";
             return false;
