@@ -107,8 +107,10 @@ class DBConnector
     private function execute_query($query_str, $return_type)
     {
         $result = $this->_connection->query($query_str);
-        if ($result){
+        if (is_array($result)){
             return $result->fetch_all($return_type);
+        }elseif ($result){
+            return $result;
         }else{
             echo "Error while querying the DB. Check your query.";
             return false;
