@@ -18,7 +18,10 @@ $license_no = "%";
 // Get the license no when doctor/physio looking at appointments
 if (array_key_exists("type", $_SESSION) && ($_SESSION["type"] == "DOCTOR" || $_SESSION["type"] == "THERAPIST")){
     $license_no = $_SESSION["username"];
+}else if (array_key_exists("license_no", $_POST) && isset($_POST["license_no"])){
+    $license_no = $_POST["license_no"];
 }
+
 
 // If need to filter by date
 $start_date = "0000-00-00";
