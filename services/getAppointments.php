@@ -16,18 +16,18 @@ session_start();
 $license_no = "%";
 
 // Get the license no when doctor/physio looking at appointments
-if ($_SESSION["type"] == "DOCTOR" || $_SESSION["type"] == "THERAPIST"){
+if (isset($_SESSION["type"]) && ($_SESSION["type"] == "DOCTOR" || $_SESSION["type"] == "THERAPIST")){
     $license_no = $_SESSION["username"];
 }
 
 // If need to filter by date
 $start_date = "0000-00-00";
 $end_date = "9999-99-99";
-if (isset($_POST["start_date"])){
+if (isset($_POST["start_date"])) {
     $start_date = trim($_POST["start_date"]);
 }
 
-if (isset($_POST["end_date"])){
+if (isset($_POST["end_date"])) {
     $end_date = trim($_POST["end_date"]);
 }
 
@@ -39,7 +39,7 @@ $query = "SELECT
   p.lastname p_lastname,
   ms.licenseno,
   ms.sfirstname staff_firstname,
-  ms.slastname staff_last_name,
+  ms.slastname staff_lastname,
   ms.title staff_title,
   apt.date,
   apt.time
@@ -53,7 +53,7 @@ WHERE
   apt.date >= '$start_date'
   AND 
   apt.date <= '$end_date'
-ORDER BY apt.date DESC";
+ORDER BY apt.date DESC;";
 
 $results = $db_connector->query_assoc($query);
 
