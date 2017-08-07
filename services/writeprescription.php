@@ -36,6 +36,7 @@ $result = $dbc->query_assoc("SELECT apptid
                                     FROM prescription
                                     WHERE apptid='$apptid'");
 
+//send error and exit script if appointment already has prescription
 if($result) {
     $data['status'] = 'Error';
     $data['msg'] = 'Appointment already has prescription';
@@ -55,7 +56,7 @@ $prescriptionid = $result[0]['prescriptionid'];
 
 //doctor prescription
 if($_SESSION['type'] == 'DOCTOR') {
-    //form data only for doctor
+    //get the medication
     $medication = $_POST['medication'];
 
     //insert medication into doctor prescription table
@@ -65,22 +66,32 @@ if($_SESSION['type'] == 'DOCTOR') {
 
 //physiotherapist prescription
 else if($_SESSION['type'] == 'THERAPIST') {
-    //form data only for physiotherapist
+    //get the therapy
     $therapy = $_POST['therapy'];
 
-    //@todo allow for multiple equipments and multiple treatments
-    $equipment = $_POST['equipment'];
-    $treatment = $_POST['treatment'];
-
-    //insert therapy, equipment and treatment into physio prescription tables
+    //insert therapy into physio prescription table
     $dbc->query_assoc("INSERT INTO physioprescription(prescriptionid,therapy)
                         VALUES ('$prescriptionid','$therapy')");
 
-    //make a loop to insert all equipment/treatment into db
-    $dbc->query_assoc("INSERT INTO phypresequipment(prescriptionid,equipmentid)
+    //get all checked off equipment
+    $equipment = $_POST['equipment'];
+
+    //insert equipment into physio prescription equipment table
+    foreach ($equipment as $key => $value) {
+        $equipmentid = $value;
+        $dbc->query_assoc("INSERT INTO phypresequipment(prescriptionid,equipmentid)
                         VALUES ('$prescriptionid','$equipmentid')");
-    $dbc->query_assoc("INSERT INTO physprestreatment(prescriptionid,treatmentid)
+    }
+
+    //get all checked off treatments
+    $treatment = $_POST['treatment'];
+
+    //insert treatment into physio prescription treatment table
+    foreach ($treatment as $key => $value) {
+        $treatmentid = $value;
+        $dbc->query_assoc("INSERT INTO phyprestreatment(prescriptionid,treatmentid)
                         VALUES ('$prescriptionid','$treatmentid')");
+    }
 }
 
 //send a success message to front-end
