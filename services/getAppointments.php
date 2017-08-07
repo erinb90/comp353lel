@@ -16,7 +16,7 @@ session_start();
 $license_no = "%";
 
 // Get the license no when doctor/physio looking at appointments
-if (isset($_SESSION["type"]) && ($_SESSION["type"] == "DOCTOR" || $_SESSION["type"] == "THERAPIST")){
+if (array_key_exists("type", $_SESSION) && ($_SESSION["type"] == "DOCTOR" || $_SESSION["type"] == "THERAPIST")){
     $license_no = $_SESSION["username"];
 }
 
