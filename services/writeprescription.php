@@ -31,6 +31,18 @@ if(!$result) {
     exit;
 }
 
+//check if appointment id already has prescription
+$result = $dbc->query_assoc("SELECT apptid
+                                    FROM prescription
+                                    WHERE apptid='$apptid'");
+
+if($result) {
+    $data['status'] = 'Error';
+    $data['msg'] = 'Appointment already has prescription';
+    echo json_encode($data);
+    exit;
+}
+
 //insert new entry into prescriptions table
 $dbc->query_assoc("INSERT INTO prescription(apptid,diagnosis,notes)
                     VALUES ('$apptid','$diagnosis','$notes')");

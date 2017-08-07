@@ -25,7 +25,7 @@ if (array_key_exists("type", $_SESSION) && ($_SESSION["type"] == "DOCTOR" || $_S
 
 // If need to filter by date
 $start_date = "0000-00-00";
-$end_date = "9999-99-99";
+$end_date = "9999-12-31";
 if (isset($_POST["start_date"])) {
     $start_date = trim($_POST["start_date"]);
 }
