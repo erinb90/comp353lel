@@ -1,4 +1,4 @@
-<form id="write-prescription">
+<form id="physio-write-prescription">
 
     <!-- appt id -->
     <div class="form-group has-error">
@@ -30,10 +30,19 @@
     <!-- end therapy -->
 
     <!-- equipment -->
-      <div class="form-group has-error">
-            <label class="control-label" for="equipment">Equipment</label>
-            <input type="text" name="equipment" class="form-control" id="equipment">
-      </div>
+    <div class="form-group has-error">
+        <label class="control-label">Equipment</label>
+    </div>
+
+    <div class="form-group has-error" id="checklist">
+        <label><input type="checkbox" name="equipment" value="1">Stationary Bicycle</label><br/>
+        <label><input type="checkbox" name="equipment" value="2">Massage Chair</label><br/>
+        <label><input type="checkbox" name="equipment" value="3">Stretcher</label><br/>
+        <label><input type="checkbox" name="equipment" value="4">Weights</label><br/>
+        <label><input type="checkbox" name="equipment" value="5">Massage Table</label><br/>
+        <label><input type="checkbox" name="equipment" value="6">Treadmill</label>
+    </div>
+
     <!-- end equipment -->
 
       <!--treatment-->
