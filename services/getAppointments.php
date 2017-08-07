@@ -53,7 +53,7 @@ WHERE
   apt.date >= '$start_date'
   AND 
   apt.date <= '$end_date'
-ORDER BY apt.date DESC;";
+ORDER BY apt.date DESC, apt.time;";
 
 $results = $db_connector->query_assoc($query);
 

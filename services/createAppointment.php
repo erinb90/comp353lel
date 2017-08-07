@@ -12,7 +12,7 @@ $returned_data = array("msg" => "", "status" => "Failed");
 
 if (!array_key_exists("time_app", $_POST) || !array_key_exists("date_app", $_POST) || !array_key_exists("serial_number", $_POST)) {
     $returned_data["msg"] = "Missing information";
-    echo $returned_data;
+    echo json_encode($returned_data);
     die();
 }
 
