@@ -13,8 +13,10 @@
 
     <!--- templates' names to load -->
     <script>
-        var page_templates = ['receptionist-menu-content', 'receptionist-register-form', 'register-referral'];
+        var page_templates = ['receptionist-menu-content', 'receptionist-register-form', 'register-referral'
+                                ,'receptionist-stuff-list', 'receptionist-stuff-form', 'stuff-info-modal'];
     </script>
+    <!--- End Template names -->
 
     <script src="../lib/js/template-loader.js"></script>
     <script src="../lib/js/form-submit.js"></script>
@@ -35,6 +37,7 @@
             <li><a data-toggle="tab" href="#make-appointment" onclick="getAllLicenseSerialNo()">Make an Appointment</a></li>
             <li><a data-toggle="tab" href="#register-referral" onclick="getInfoCreateRef()">Register a Referral</a></li>
             <li><a data-toggle="tab" href="#register-patient" onclick="resetPatientForm()">Register a patient</a></li>
+            <li><a data-toggle="tab" href="#register-stuff-list" onclick="GetStuffList()">Staff List</a></li>
 
         </ul>
     </div>
