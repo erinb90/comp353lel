@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-lg-4">
+        <div class="form-group has-error">
+            <label class="control-label" for="appm_phn">Patient's PHN</label>
+            <input type="text" name="appm_phn" class="form-control" id="appm_phn">
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="form-group has-error">
+            <label class="control-label" for="appm_licence">Staff's Licence</label>
+            <input type="password" name="appm_licence" class="form-control" id="appm_licence">
+        </div>
+    </div>
+</div>
+<input type="button" name="" class="btn btn-default" value="Find Appointments" id="appm_button"
+       onclick="GetALLPatientAppointments()">
+
+<br>
+<br>
+
+<table class="table table-striped table-hover ">
+    <thead>
+    <tr class="danger">
+        <th>#</th>
+        <th>Appointment ID</th>
+        <th>Licence Number</th>
+        <th>Time</th>
+        <th>Modify</th>
+    </tr>
+    </thead>
+
+    <tbody id="appontment-modify-list">
+
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+{
+  "results": [
+
+      {"appm_id":"appointmentid-1", "phn":"phnnn", "licence_number" :"vekne", "serial_number":"sdfgjhskdg", "time" : "2301-21-11"},
+      {"appm_id":"appointmentid-22", "phn":"phnnn", "licence_number" :"vekne", "serial_number": "xxxxsdd","time" : "2301-21-11"}
+  ],
+  "response": true,
+  "status" : "Success",
+  "msg" : "data found",
+  "title" : "Patient Appointments"
+}
