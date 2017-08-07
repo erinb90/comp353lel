@@ -42,7 +42,8 @@ $query = "SELECT
   ms.slastname staff_lastname,
   ms.title staff_title,
   apt.date,
-  apt.time
+  apt.time,
+  apt.apptid appt_id
 FROM appointment AS apt
   JOIN referral AS r ON r.serialno = apt.serialno
   JOIN medicalstaff AS ms ON ms.licenseno = r.licenseno
