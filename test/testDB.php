@@ -11,7 +11,8 @@ include_once "../utilities/DBConnector.php";
 $connector = new DBConnector();
 
 echo "<pre>";
-print_r( $connector->query_assoc("SELECT * FROM users"));
+print_r( $connector->query_assoc("SELECT apptid
+                                    FROM appointment where apptid='50'"));
 echo "</pre>";
 
 echo "<pre>";
