@@ -8,6 +8,20 @@
 
 include_once("../utilities/DBConnector.php");
 
+session_start();
+
+$redirect_flag = true;
+
+if (array_key_exists("type", $_SESSION) &&
+    ($_SESSION["type"] == "RECEPTIONIST")) {
+                 $redirect_flag = false;
+}
+
+if($redirect_flag){
+    return header("Location: ../pages/Login.html",true);
+}
+
+
 $returned_data = array("msg" => "", "status" => "Failed");
 
 if (!array_key_exists("time_app", $_POST) || !array_key_exists("date_app", $_POST)
