@@ -39,6 +39,28 @@ if (isset($_POST["end_date"])) {
     $end_date = trim($_POST["end_date"]);
 }
 
+// If need to filter by date
+$start_date = "0000-00-00";
+$end_date = "9999-12-22";
+if (isset($_POST["start_date"])) {
+    $start_date = trim($_POST["start_date"]);
+}
+
+if (isset($_POST["end_date"])) {
+    $end_date = trim($_POST["end_date"]);
+}
+
+// If need to filter by date
+$start_date = "0000-00-00";
+$end_date = "9999-12-31";
+if (isset($_POST["start_date"])) {
+    $start_date = trim($_POST["start_date"]);
+}
+
+if (isset($_POST["end_date"])) {
+    $end_date = trim($_POST["end_date"]);
+}
+
 // Query to get all appointments (Add the username depending on the login type)
 $query = "SELECT
   r.serialno,
