@@ -34,7 +34,12 @@ if (!isset($_POST["serialno"])){
     echo json_encode($returned_data);
     die();
 }
-
+$referral_username = "%";
+session_start();
+//Check if the patient is the user of the endpoint
+if(($_SESSION['type'] == "PATIENT")){
+    $referral_username = $_SESSION['username'];
+}
 $referral_serial = trim($_POST["serialno"]);
 
 $query = "SELECT
@@ -45,15 +50,19 @@ $query = "SELECT
   phn patient_phn
 FROM referral
 WHERE
-  serialno = '$referral_serial';";
+  serialno = '$referral_serial'
+  AND 
+  phn LIKE '$referral_username';";
 
-$results = $db_connector->query_first_row($query);
 
-if ($results){
+$results = $db_connector->query_assoc($query);
+
+if (is_array($results) && sizeof($results) > 0){
     $returned_data["response"] = true;
-    $returned_data["results"] = $results;
+    $returned_data["results"] = $results[0];
 }else{
-    $returned_data["message"] = "Error while running query";
+    $returned_data["response"] = false;
+    $returned_data["message"] = "The serial number is not linked to this patient";
 }
 
 echo json_encode($returned_data);

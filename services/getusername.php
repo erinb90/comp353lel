@@ -7,11 +7,17 @@
  */
     session_start();
 
-    if(!isset($_SESSION['username'])){
-        echo "";
+    if(strpos(strtolower(getallheaders()['Referer']), strtolower($_SESSION['type'])) == false){
+        echo "error";
     }
-    else {
-        echo $_SESSION['username'];
+
+    else{
+        if(!isset($_SESSION['username'])){
+            echo "error";
+        }
+        else {
+            echo $_SESSION['username'];
+        }
     }
 
 ?>
