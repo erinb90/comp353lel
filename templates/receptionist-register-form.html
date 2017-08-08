@@ -14,13 +14,13 @@
                   </div>
             </div>
 
-      <div class="row">
-            <div class="col-lg-4">
-                  <div class="form-group has-error">
-                        <label class="control-label" for="firstname">Patient's last name</label>
-                        <input type="text" name="lastname" class="form-control" id="lastname">
+            <div class="row">
+                  <div class="col-lg-4">
+                        <div class="form-group has-error">
+                              <label class="control-label" for="firstname">Patient's last name</label>
+                              <input type="text" name="lastname" class="form-control" id="lastname">
+                        </div>
                   </div>
-            </div>
 
                         <div class="col-lg-3" id="optional-password">
                               <div class="form-group has-error">
@@ -28,43 +28,43 @@
                                     <input type="password" name="password" class="form-control" id="password">
                               </div>
 
+                  </div>
+            </div>
+            <!--sex-->
+            <div class="row">
+                  <div class="col-lg-6">
+                        <div class="radio">
+                              <label for="sex-male">
+                                    <input type="radio" name="sex" id="sex-male" value="M">
+                                    Male
+                              </label>
                         </div>
                   </div>
-      <!--sex-->
-      <div class="row">
-            <div class="col-lg-6">
-                  <div class="radio">
-                        <label for="sex">
-                              <input type="radio" name="sex" id="sex" value="M" checked="">
-                                          Male
-                        </label>
-                  </div>
-            </div>
 
-            <div class="col-lg-6">
-                  <div class="radio">
-                        <label for="sex">
-                              <input type="radio" name="sex" id="sex" value="F">
+                  <div class="col-lg-6">
+                        <div class="radio">
+                              <label for="sex-female">
+                                    <input type="radio" name="sex" id="sex-female" value="F">
                                     Female
-                        </label>
+                              </label>
+                        </div>
                   </div>
             </div>
-      </div>
-      <!--end sex -->
+            <!--end sex -->
 
 
-      <!--date of birth-->
-      <div class="form-group has-error">
-            <label class="control-label" for="dateofbirth">Date of Birth</label>
-            <input type="text" name="dateofbirth" class="form-control" id="dateofbirth">
-      </div>
-      <!--end date of birth-->
+            <!--date of birth-->
+            <div class="form-group has-error">
+                  <label class="control-label" for="dateofbirth">Date of Birth (YYYY-MM-DD)</label>
+                  <input type="text" name="dateofbirth" class="form-control" id="dateofbirth">
+            </div>
+            <!--end date of birth-->
 
-      <!--email-->
-      <div class="form-group has-error">
-            <label class="control-label" for="email">Patient's Email</label>
-            <input type="text" class="form-control" name="email" id="email">
-      </div>
-      <!--end email-->
+            <!--email-->
+            <div class="form-group has-error">
+                  <label class="control-label" for="email">Patient's Email</label>
+                  <input type="text" class="form-control" name="email" id="email">
+            </div>
+            <!--end email-->
 
 </form>
