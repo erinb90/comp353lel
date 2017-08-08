@@ -28,14 +28,32 @@ $gender = $_POST['sex'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
+//check age
 if (isset($dob)){
     $date = date_parse($dob);
     $age = (int)getdate()["year"] - (int)$date["year"];
     if ($age < 18){
+        $data["status"] = "Failure";
         $data["msg"] = "Invalid Age. Need to be at least 18";
         echo json_encode($data);
         die();
     }
+}
+
+//check email format
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $data["status"] = "Failure";
+    $data['msg'] = "Invalid email format";
+    echo json_encode($data);
+    die();
+}
+
+//check dob format
+if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$dob)) {
+    $data["status"] = "Failure";
+    $data['msg'] = "Invalid date of birth format";
+    echo json_encode($data);
+    die();
 }
 
 /*phn generator*/
