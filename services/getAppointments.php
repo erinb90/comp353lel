@@ -7,10 +7,9 @@
  */
 
 include_once("../utilities/DBConnector.php");
+session_start();
 
 $db_connector = new DBConnector();
-
-session_start();
 
 // Default username
 $license_no = "%";

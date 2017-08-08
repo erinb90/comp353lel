@@ -3,6 +3,19 @@
 /* Polina Anis'kina ID: 26991092 */
 
 include_once('../utilities/DBConnector.php');
+session_start();
+
+$redirect_flag = true;
+
+//checking user authentication level "receptionist only"
+if (array_key_exists("type", $_SESSION) &&
+    ($_SESSION["type"] == "RECEPTIONIST")){
+            $redirect_flag = false;
+}
+
+if($redirect_flag){
+    return header("Location: ../pages/Login.html",true);
+}
 
 $dbc = new DBConnector();
 

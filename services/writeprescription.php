@@ -7,8 +7,19 @@
  */
 
 include_once('../utilities/DBConnector.php');
-
 session_start();
+
+$redirect_flag = true;
+
+if (array_key_exists("type", $_SESSION) &&
+    ($_SESSION["type"] == "DOCTOR" || 
+        $_SESSION["type"] == "THERAPIST")) {
+                 $redirect_flag = false;
+}
+
+if($redirect_flag){
+    return header("Location: ../pages/Login.html",true);
+}
 
 //connect to db
 $dbc = new DBConnector();

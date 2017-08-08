@@ -7,8 +7,20 @@
  */
 
 include_once("../utilities/DBConnector.php");
+session_start();
 
+$redirect_flag = true;
 $returned_data = array("msg" => "", "status" => "Error");
+
+if (array_key_exists("type", $_SESSION) &&
+    ($_SESSION["type"] == "RECEPTIONIST")) {
+                 $redirect_flag = false;
+}
+
+if($redirect_flag){
+    return header("Location: ../pages/Login.html",true);
+}
+
 
 if (!array_key_exists("referral-phn", $_POST) || !array_key_exists("referral-serialnumber", $_POST) ||
     !array_key_exists("referral-licencenumber", $_POST)){

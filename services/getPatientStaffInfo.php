@@ -8,9 +8,26 @@
 
 include_once ("../utilities/DBConnector.php");
 
+session_start();
+$redirect_flag = true;
+
+if (array_key_exists("type", $_SESSION) &&
+    ($_SESSION["type"] == "DOCTOR" || 
+        $_SESSION["type"] == "THERAPIST" ||
+          $_SESSION["type"] == "NURSE" ||
+            $_SESSION["type"] == "RECEPTIONIST")) {
+                 $redirect_flag = false;
+}
+
+if($redirect_flag){
+    return header("Location: ../pages/Login.html",true);
+}
+
+
 $returned_data = array("response" => false, "msg" => "", "status" => "Error", "results" => array("patient_results" => "", "staff_info" => ""));
 
 $db_connector = new DBConnector();
+
 
 $patient_query = "SELECT
   phn,

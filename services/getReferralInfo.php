@@ -7,8 +7,25 @@
  */
 
 include_once("../utilities/DBConnector.php");
+session_start();
 
 $db_connector = new DBConnector();
+$redirect_flag = true;
+
+if (array_key_exists("type", $_SESSION) &&
+    ($_SESSION["type"] == "DOCTOR" || 
+        $_SESSION["type"] == "THERAPIST" ||
+          $_SESSION["type"] == "NURSE" ||
+            $_SESSION["type"] == "RECEPTIONIST")) {
+                 $redirect_flag = false;
+}
+
+if($redirect_flag){
+    return header("Location: ../pages/Login.html",true);
+}
+
+
+
 
 $returned_data = array("response"=>false, "message"=>"", "results"=>[]);
 

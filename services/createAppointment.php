@@ -7,8 +7,21 @@
  */
 
 include_once("../utilities/DBConnector.php");
+session_start();
 
 $returned_data = array("msg" => "", "status" => "Failed");
+$redirect_flag = true;
+
+//checking user authentication level "Receptionist and Patient"
+if (array_key_exists("type", $_SESSION) &&
+    ($_SESSION["type"] == "RECEPTIONIST" || 
+        $_SESSION["type"] == "PATIENT")){
+            $redirect_flag = false;
+}
+
+if($redirect_flag){
+    return header("Location: ../pages/Login.html",true);
+}
 
 if (!array_key_exists("time_app", $_POST) || !array_key_exists("date_app", $_POST) || !array_key_exists("serial_number", $_POST)) {
     $returned_data["msg"] = "Missing information";
