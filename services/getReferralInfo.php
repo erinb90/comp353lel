@@ -16,7 +16,7 @@ if (array_key_exists("type", $_SESSION) &&
     ($_SESSION["type"] == "DOCTOR" || 
         $_SESSION["type"] == "THERAPIST" ||
           $_SESSION["type"] == "NURSE" ||
-            $_SESSION["type"] == "RECEPTIONIST" || 
+            $_SESSION["type"] == "RECEPTIONIST" ||
             $_SESSION["type"] == "PATIENT")) {
                  $redirect_flag = false;
 }
@@ -52,7 +52,7 @@ $query = "SELECT
 FROM referral
 WHERE
   serialno = '$referral_serial'
-  AND 
+  AND
   phn LIKE '$referral_username';";
 
 
