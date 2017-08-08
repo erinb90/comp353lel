@@ -16,7 +16,8 @@ if (array_key_exists("type", $_SESSION) &&
     ($_SESSION["type"] == "DOCTOR" || 
         $_SESSION["type"] == "THERAPIST" ||
           $_SESSION["type"] == "NURSE" ||
-            $_SESSION["type"] == "RECEPTIONIST")) {
+            $_SESSION["type"] == "RECEPTIONIST" || 
+            $_SESSION["type"] == "PATIENT")) {
                  $redirect_flag = false;
 }
 
@@ -35,7 +36,7 @@ if (!isset($_POST["serialno"])){
     die();
 }
 $referral_username = "%";
-session_start();
+
 //Check if the patient is the user of the endpoint
 if(($_SESSION['type'] == "PATIENT")){
     $referral_username = $_SESSION['username'];
