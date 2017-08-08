@@ -29,6 +29,15 @@ $apptid = $_POST['apptid'];
 $diagnosis = $_POST['diagnosis'];
 $notes = $_POST['notes'];
 
+//make sure notes is no more than 100 words
+$words = explode(" ", $notes);
+if(count($words)>100) {
+    $data['status'] = 'Error';
+    $data['msg'] = 'Note exceeds the maximum of 100 words';
+    echo json_encode($data);
+    exit;
+}
+
 //make sure the appointment id exists
 $result = $dbc->query_assoc("SELECT apptid
                                     FROM appointment
