@@ -7,9 +7,10 @@
  */
 
 include_once("../utilities/DBConnector.php");
-session_start();
 
 $db_connector = new DBConnector();
+
+session_start();
 
 // Default username
 $license_no = "%";
@@ -25,6 +26,28 @@ if (array_key_exists("type", $_SESSION) && ($_SESSION["type"] == "DOCTOR" || $_S
 $patient_phn = "%";
 if (array_key_exists("patient_phn", $_POST) && isset($_POST["patient_phn"])){
     $patient_phn = $_POST["patient_phn"];
+}
+
+// If need to filter by date
+$start_date = "0000-00-00";
+$end_date = "9999-12-31";
+if (isset($_POST["start_date"])) {
+    $start_date = trim($_POST["start_date"]);
+}
+
+if (isset($_POST["end_date"])) {
+    $end_date = trim($_POST["end_date"]);
+}
+
+// If need to filter by date
+$start_date = "0000-00-00";
+$end_date = "9999-12-22";
+if (isset($_POST["start_date"])) {
+    $start_date = trim($_POST["start_date"]);
+}
+
+if (isset($_POST["end_date"])) {
+    $end_date = trim($_POST["end_date"]);
 }
 
 // If need to filter by date
