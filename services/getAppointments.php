@@ -22,6 +22,11 @@ if (array_key_exists("type", $_SESSION) && ($_SESSION["type"] == "DOCTOR" || $_S
     $license_no = $_POST["license_no"];
 }
 
+// Default PHN
+$patient_phn = "%";
+if (array_key_exists("patient_phn", $_POST) && isset($_POST["patient_phn"])){
+    $patient_phn = $_POST["patient_phn"];
+}
 
 // If need to filter by date
 $start_date = "0000-00-00";
@@ -79,18 +84,23 @@ WHERE
   apt.date >= '$start_date'
   AND 
   apt.date <= '$end_date'
+  AND 
+  p.phn LIKE '$patient_phn'
 ORDER BY apt.date DESC, apt.time;";
 
 $results = $db_connector->query_assoc($query);
 
 // Data array to be returned
-$returned_data = array();
-if ($results){
-    $returned_data["response"] = true;
-    $returned_data["results"] = $results;
+$returned_data = array("response" => false, "results" => null, "msg" => "");
+if (is_array($results)){
+    if (sizeof($results) > 0){
+        $returned_data["response"] = true;
+        $returned_data["results"] = $results;
+    }else{
+        $returned_data["msg"] = "No records found";
+    }
 }else{
-    $returned_data["response"] = false;
-    $returned_data["err_message"] = "Unable to fetch data";
+    $returned_data["msg"] = "Unable to fetch data";
 }
 
 // Send data to front-end
