@@ -15,7 +15,7 @@
     <script>
         var page_templates = ['receptionist-menu-content', 'receptionist-register-form', 'register-referral'
                                 ,'receptionist-stuff-list', 'receptionist-stuff-form', 'stuff-info-modal',
-                                'appointment-modify-list', 'all-patient-list'];
+                                'appointment-modify-list', 'all-patient-list','unused-equipment','view-therapist-also-patients','view-all-therapist'];
     </script>
     <!--- End Template names -->
 
@@ -41,6 +41,9 @@
             <li><a data-toggle="tab" href="#register-stuff-list" onclick="GetStuffList()">Staff List</a></li>
             <li><a data-toggle="tab" href="#appointment-modify-list" onclick="getPatientStaffList()">Update Appointments</a></li>
             <li><a data-toggle="tab" href="#view-all-records-of-patients" onclick="getAllPatientsInfo()">View All Records of All patients</a></li>
+            <li><a data-toggle="tab" href="#view-unused-equipment" onclick="getUnusedEquipment()">View Unused Equipment</a></li>
+            <li><a data-toggle="tab" href="#therapist-also-patients" onclick="getTherapistsArePatients()">View Therapists who are also patients</a></li>
+            <li><a data-toggle="tab" href="#view-all-therapists" onclick="getAllTherapists()">View All Therapists</a></li>
         </ul>
     </div>
     <!-- END receptionist menu -->
