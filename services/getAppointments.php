@@ -41,7 +41,7 @@ if (isset($_POST["end_date"])) {
 
 // If need to filter by date
 $start_date = "0000-00-00";
-$end_date = "9999-12-22";
+$end_date = "9999-12-31";
 if (isset($_POST["start_date"])) {
     $start_date = trim($_POST["start_date"]);
 }
