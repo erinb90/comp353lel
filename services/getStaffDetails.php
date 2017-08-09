@@ -20,7 +20,8 @@ if (array_key_exists("staff_license_no", $_POST) && isset($_POST["staff_license_
 $staff_query = "SELECT 
     licenseno license_no,
     sfirstname first_name,
-    slastname last_name
+    slastname last_name,
+    title staff_title
 FROM medicalstaff
 WHERE licenseno LIKE '$staff_license_no';";
 
