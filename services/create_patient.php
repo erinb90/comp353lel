@@ -9,7 +9,9 @@ $redirect_flag = true;
 
 //checking user authentication level "receptionist only"
 if (array_key_exists("type", $_SESSION) &&
-    ($_SESSION["type"] == "RECEPTIONIST")){
+    ($_SESSION["type"] == "RECEPTIONIST" 
+      || $_SESSION["type"] == "NURSE"
+       || $_SESSION["type"] == "DOCTOR")){
             $redirect_flag = false;
 }
 
@@ -91,6 +93,7 @@ $user_result = $dbc->query_assoc($users_query);
 
 if (is_bool($patient_result) && is_bool($user_result) && $patient_result && $user_result){
     $data["status"] = "Success";
+    $data["msg"] = "Patient information has been added to our records";
 }else{
     $data["status"] = "Failure";
     $data["msg"] = "Unable to insert new patient record";

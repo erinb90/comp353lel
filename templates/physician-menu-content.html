@@ -33,6 +33,18 @@
                   </span>
         </div>
         <!-- END submit from button -->
+    </div>
 
+    <div id="register-patient" class="tab-pane fade">
+        <h1>Register a Patient</h1>
+        <comp353-physician-register-form></comp353-physician-register-form>
+
+        <!-- submit from button -->
+        <div class="form-group">
+                  <span class="input-group-btn">
+                        <input class="btn btn-default" value="Submit" type="submit" id="form-submit-patient"
+                               onclick="SubmitForm('../services/create_patient.php', 'physician-register-form');"/>Button
+                  </span>
+        </div>
     </div>
 </div>
