@@ -59,7 +59,7 @@ if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$dob))
 /*phn generator*/
 $l_name = substr($lastname,0,3);
 $f_name = substr($firstname,0,1);
-if($gender = 'F'){
+if($gender == 'F'){
   $gen = substr($dob,5,2)+ 50;
 } else{
   $gen = substr($dob,5,2);
