@@ -10,40 +10,52 @@
         </div>
 
         <button type="submit" class="btn btn-default" onclick="GetUser();">Submit</button>
-    </div>
 
-    <br>
-    <br>
+        <br>
+        <br>
 
-
-    <div id="" class="tab-pane fade in active">
         <h2>Patient information</h2>
-        <table class="table table-striped table-hover ">
-            <thead>
-            <tr class="danger">
-                <th>#</th>
-                <th>Patient</th>
-                <th>Patient Details</th>
-            </tr>
-            </thead>
+        <div id="" class="tab-pane fade in active">
+            <table class="table table-striped table-hover ">
+                <thead>
+                <tr class="danger">
+                    <th>#</th>
+                    <th>Patient</th>
+                    <th>Patient Details</th>
+                </tr>
+                </thead>
 
-            <tbody id="user-found">
+                <tbody id="user-found">
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
-        <comp353-patient-info-modal></comp353-patient-info-modal>
+            <comp353-patient-info-modal></comp353-patient-info-modal>
+        </div>
+
     </div>
+
+
+    <!-- submit from button -->
+    <div id="patient-form" class="tab-pane fade form-group">
+        <comp353-nurse-register-form></comp353-nurse-register-form>
+
+        <span class="input-group-btn">
+            <input class="btn btn-default" value="Submit" type="submit" id="form-submit-patient"
+                   onclick="SubmitForm('../services/create_patient.php', 'patient-register-form');"/>Button
+        </span>
+    </div>
+    <!-- END submit from button -->
 
     <div id="alter" class="tab-pane fade">
         <comp353-alter-table></comp353-alter-table>
 
         <!-- submit from button -->
         <div class="form-group">
-                  <span class="input-group-btn">
-                        <input class="btn btn-default" value="Submit" type="button" id="form-submit"
-                               onclick="SubmitForm('../services/alterSchema.php','alter-table');"/>Button
-                  </span>
+                      <span class="input-group-btn">
+                            <input class="btn btn-default" value="Submit" type="button" id="form-submit"
+                                   onclick="SubmitForm('../services/alterSchema.php','alter-table');"/>Button
+                      </span>
         </div>
         <!-- END submit from button -->
     </div>
