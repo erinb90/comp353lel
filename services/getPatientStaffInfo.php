@@ -49,7 +49,8 @@ $staff_query = "SELECT
   licenseno,
   sfirstname f_name,
   slastname l_name
-FROM medicalstaff;";
+FROM medicalstaff
+WHERE title!='Nurse';";
 
 $staff_results = $db_connector->query_assoc($staff_query);
 
