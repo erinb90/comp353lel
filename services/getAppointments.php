@@ -75,6 +75,7 @@ if (is_array($results)){
         $returned_data["response"] = true;
         $returned_data["results"] = $results;
     }else{
+        $returned_data["response"] = true;
         $returned_data["msg"] = "No records found";
     }
 }else{
