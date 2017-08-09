@@ -15,8 +15,9 @@
     <br>
     <br>
 
-    <h2>Patient information</h2>
+
     <div id="" class="tab-pane fade in active">
+        <h2>Patient information</h2>
         <table class="table table-striped table-hover ">
             <thead>
             <tr class="danger">
@@ -33,3 +34,17 @@
 
         <comp353-patient-info-modal></comp353-patient-info-modal>
     </div>
+
+    <div id="alter" class="tab-pane fade">
+        <comp353-alter-table></comp353-alter-table>
+
+        <!-- submit from button -->
+        <div class="form-group">
+                  <span class="input-group-btn">
+                        <input class="btn btn-default" value="Submit" type="button" id="form-submit"
+                               onclick="SubmitForm('../services/alterSchema.php','alter-table');"/>Button
+                  </span>
+        </div>
+        <!-- END submit from button -->
+    </div>
+</div>
