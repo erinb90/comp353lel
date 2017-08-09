@@ -41,7 +41,7 @@ if (isset($_POST["end_date"])) {
 
 // If need to filter by date
 $start_date = "0000-00-00";
-$end_date = "9999-12-22";
+$end_date = "9999-12-31";
 if (isset($_POST["start_date"])) {
     $start_date = trim($_POST["start_date"]);
 }
@@ -92,6 +92,7 @@ $results = $db_connector->query_assoc($query);
 
 // Data array to be returned
 $returned_data = array("response" => false, "results" => null, "msg" => "");
+
 if (is_array($results)){
     if (sizeof($results) > 0){
         $returned_data["response"] = true;

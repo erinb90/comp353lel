@@ -7,10 +7,14 @@
  */
     session_start();
 
-    if(strpos(strtolower(getallheaders()['Referer']), strtolower($_SESSION['type'])) == false){
+    if(! array_key_exists('type', $_SESSION)){
         echo "error";
     }
 
+    else if(strpos(strtolower(getallheaders()['Referer']), strtolower($_SESSION['type'])) == false){
+        echo "error";
+    }
+    
     else{
         if(!isset($_SESSION['username'])){
             echo "error";
